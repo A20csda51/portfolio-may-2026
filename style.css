@@ -1078,3 +1078,78 @@ body {
     color: var(--text-muted);
     font-size: 0.9rem;
 }
+
+/* ==========================================================================
+   Long Form Video Showcase
+   ========================================================================== */
+.long-form-showcase {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 32px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+}
+
+.cinematic-glow {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2), 0 0 10px rgba(236, 72, 153, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.cinematic-glow:hover {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.4), 0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+.long-form-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.showcase-content {
+    margin-top: 32px;
+}
+
+.showcase-desc {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.workflow-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.pill-tag {
+    padding: 8px 16px;
+    border-radius: 50px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    color: var(--accent-purple);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.1);
+}
+
+.pill-tag:hover {
+    background: rgba(124, 58, 237, 0.2);
+    border-color: rgba(124, 58, 237, 0.5);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+    transform: translateY(-2px);
+}
+
+.showcase-action {
+    margin-top: 32px;
+}

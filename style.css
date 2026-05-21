@@ -676,60 +676,234 @@ body {
 }
 
 /* ==========================================================================
-   Skills Section
+   Content Types I Create
    ========================================================================== */
-.skills-container {
+.content-type-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 32px;
+    gap: 20px;
 }
 
-.skill-category {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-}
-
-.category-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    margin-bottom: 20px;
+.content-type-card {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+    padding: 20px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.content-type-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--glass-border-highlight);
+    background: var(--glass-bg-hover);
+}
+
+.content-type-card i {
+    font-size: 2rem;
+    color: var(--accent-magenta);
+}
+
+.content-type-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Production Pipeline Section
+   ========================================================================== */
+.pipeline-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.pipeline-line {
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--glass-border);
+    z-index: 1;
+}
+
+.pipeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-purple), var(--accent-magenta), var(--accent-orange), transparent);
+    background-size: 100% 200%;
+    animation: flow 4s linear infinite;
+}
+
+@keyframes flow {
+    0% { background-position: 0 -100%; }
+    100% { background-position: 0 100%; }
+}
+
+.pipeline-step {
+    position: relative;
+    padding-left: 100px;
+    margin-bottom: 60px;
+}
+
+.pipeline-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-dot {
+    position: absolute;
+    left: 16px;
+    top: 24px;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-base);
+    border: 2px solid var(--accent-magenta);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+}
+
+.step-dot i {
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+
+.step-content {
+    padding: 32px;
+    border-radius: 24px;
+    transition: transform 0.3s ease;
+}
+
+.step-content:hover {
+    transform: translateX(10px);
+    border-color: var(--glass-border-highlight);
+}
+
+.step-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+    margin-bottom: 24px;
+}
+
+.step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.step-col h4 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.step-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.step-col li {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.step-col li::before {
+    content: '•';
+    color: var(--accent-purple);
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .step-grid {
+        grid-template-columns: 1fr;
+    }
+    .pipeline-line {
+        left: 20px;
+    }
+    .step-dot {
+        left: -4px;
+        width: 40px;
+        height: 40px;
+    }
+    .step-dot i {
+        font-size: 1.2rem;
+    }
+    .pipeline-step {
+        padding-left: 60px;
+    }
+}
+
+/* ==========================================================================
+   Value Propositions Section
+   ========================================================================== */
+.value-props-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.value-card {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--glass-border-highlight);
+    background: var(--glass-bg-hover);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(236, 72, 153, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.value-icon i {
+    font-size: 2.5rem;
     color: var(--accent-orange);
 }
 
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.skill-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 500;
+.value-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    margin-bottom: 16px;
     color: var(--text-main);
-    padding: 12px;
-    border-radius: 12px;
-    background: var(--glass-bg-hover);
-    transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.skill-item:hover {
-    transform: translateX(5px);
-    background: var(--glass-border-highlight);
+.value-card p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
-.skill-item i {
-    font-size: 1.25rem;
-    color: var(--accent-purple);
-}
-
-.skill-item img {
-    border-radius: 4px;
+.value-card strong {
+    color: var(--text-main);
 }
 
 /* ==========================================================================

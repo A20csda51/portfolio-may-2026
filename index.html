@@ -646,6 +646,23 @@
                     video.muted = true;
                 });
             });
+
+            // Pause and reset long form video when scrolled out of view
+            const longVideo = document.querySelector('.long-form-video');
+            if (longVideo) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            if (!longVideo.paused) {
+                                longVideo.pause();
+                                longVideo.currentTime = 0;
+                                longVideo.load(); // Resets to poster/thumbnail
+                            }
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(longVideo);
+            }
         });
     </script>
 </body>
